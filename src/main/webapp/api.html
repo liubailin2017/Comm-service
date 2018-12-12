@@ -1,0 +1,179 @@
+<html>
+<head>
+<link href="css/simple.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+root：http://45.40.202.230:8080/asport/</br>
+<a name="login"></a>
+<table>
+
+<tr>
+<th>参数</th> <th>说明</th>
+</tr>
+<tr>
+<td>passwd</td> <td>密码</td>
+<tr>
+<td>stu_nmb</td> <td>学号</td>
+</tr>
+<tr>
+<td colspan="2">/login.do<br/>请求方式:post</td>
+</tr>
+</table>
+
+ <hr/>
+
+<a name="addcommnet"></a>
+<table>
+<tr>
+<th>参数</th> <th>说明</th>
+</tr>
+<tr>
+<td>content</td> <td>内容(只能是文本）</td>
+<tr>
+<td>dynId</td> <td>要评论的动态</td>
+
+</tr>
+<tr>
+<td>com_comment_id</td> <td>要回复的评论（如果是-1，直接对动态的回复）</td>
+</tr>
+<tr>
+<td colspan="2">/addcommnet.do<br/>请求方式:post</br>
+	添加加回复，需要登录后才能回复</td>
+</tr>
+</table>
+
+
+
+ <hr/>
+
+<a name="addDyn"></a>
+<table>
+
+<tr>
+<th>参数</th> <th>说明</th>
+</tr>
+<tr>
+<td>img1</td> <td>图片</td>
+<tr>
+<td>content</td> <td>内容（只能是文本）</td>
+
+</tr>
+<tr>
+<td>title</td> <td>标题</td>
+</tr>
+<tr>
+<td colspan="2">/addDyn.do<br/>请求方式:post</br>
+	添加动态，需要登录后才能添加</td>
+</tr>
+</table>
+
+
+ <hr/>
+
+<a name="classMateDyn"></a>
+<table>
+
+<tr>
+<th>参数</th> <th>说明</th>
+</tr>
+<tr>
+<td><p>没有参数</p></td> <td><p>没有参数</p></td>
+<tr>
+<tr>
+<td colspan="2">/classMateDyn.do<br/>
+	获取一个学校同学的动态，需要登录后才能获取</td>
+</tr>
+</table>
+ <hr/>
+
+<a name="getcomments"></a>
+<table>
+
+<tr>
+<th>参数</th> <th>说明</th>
+</tr>
+<tr>
+<td>dynId</td> <td>动态id</td>
+<tr>
+<tr>
+<td colspan="2">/getcomments.do<br/>请求方式:post</br>
+	动态下所有评论与回复</td>
+</tr></table>
+ <hr/>
+
+<a name="dynImg"></a>
+<table>
+
+<tr>
+<th>参数</th> <th>说明</th>
+</tr>
+<tr>
+<td>dynId</td> <td>动态id</td>
+<tr>
+<tr>
+<td colspan="2" >/dynImg.do<br/>请求方式:post</br>
+	动态的图片</td>
+</tr>
+</table>
+
+
+ 
+  <hr/>
+
+<a name="headimg"></a>
+<table>
+
+<th>参数</th> <th>说明</th>
+</tr>
+<tr>
+<td>stu_nmb</td> <td>学号</td>
+<tr>
+<tr>
+<td colspan="2">/head.do<br/>请求方式:post</br>
+	头像</td>
+</tr>
+<tr>
+</table>
+
+  
+  <hr/>
+
+<a name="myDyns"></a>
+<table>
+<tr>
+<th>参数</th> <th>说明</th>
+</tr>
+<tr>
+<td>stu_nmb</td> <td>学号</td> 
+</tr>
+<tr>
+<td>pageNo</td> <td>页码</td>
+</tr>
+<tr>
+ <td>pageSize</td> <td>每页大小</td>
+</tr>
+<tr>
+<td  colspan="2">/myDyns.do<br/>请求方式:post</br>
+	获取指定人的动态</td>
+</tr>
+</table
+
+  
+  <hr/>
+
+<a name="newDyns"></a>
+<table>
+
+<tr>
+<th>参数</th> <th>说明</th>
+</tr>
+<tr>
+<tr>
+<tr>
+<td colspan="2">/newDyns.do<br/>请求方式:post</br>
+	获取有最新消息的动态</td>
+</tr>
+</table
+ <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><p>end</p>
+</body>
+</html>
