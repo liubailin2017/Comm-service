@@ -8,32 +8,43 @@ import java.sql.SQLException;
 import bean.User;
 import comm.dao.UserDao;
 import comm.db.DBCon;
+import util.MD5;
 
 public class UserDaoImp implements UserDao {
-	
-	private String sql_finduser ="select * from user where stu_nmb=? and pass_wd=?";
+	private String sql_updatePw = "update classmate set pwd = ? where stu_nmb = ? and pwd=?";
+	private String sql_finduser ="select * from classmate where stu_nmb=? and pwd=?";
+
+
+	/** ------------------- 上面语句是page616321的数据库-----***/
 	private String sql_findHead = "select head_img from user where stu_nmb=?";
 	private String sql_findName = "select nickname from user where stu_nmb=?";
 	
-	private String sql_updatePw = "update user set pass_wd = ? where stu_nmb = ? and pass_wd=?";
 
 	public User findUser(Long nmb, String pw) {
 		User user =null;
-		DBCon dbc = DBCon.newInstance();
+		DBCon dbc = DBCon.newInstance(1);
 		ResultSet set = dbc.doQuery(sql_finduser, new String[] {
-			nmb+"",pw	
+			nmb+"", MD5.md5(pw)
 		});
 		
 		try {
 			if(set.next()) {
 				user = new User();
-				user.setPw(set.getString("pass_wd"));
-				user.setSchoolId(set.getInt("sch_nmb"));
+				user.setPw(set.getString("pwd"));
+				user.setSchoolId(1);
 				user.setStu_Nmb(set.getLong("stu_nmb"));
 				user.setStu_nickName(set.getString("nickname"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}
+		dbc.close();
+
+		dbc = DBCon.newInstance();
+		if(user != null) {
+			dbc.doUpdate("insert into user(stu_nmb,SCH_NMB,pass_wd,nickname) values(?,?,?,?)", new Object[]{
+					user.getStu_Nmb(),user.getSchoolId(),user.getPw(),user.getStu_nickName()
+			});
 		}
 		dbc.close();
 		return user;
@@ -80,9 +91,9 @@ public class UserDaoImp implements UserDao {
 	}
 
 	public int updatePw(Long nmb,String oldPw, String newPw) {
-		 DBCon dbc = DBCon.newInstance();
+		 DBCon dbc = DBCon.newInstance(1);
 		return dbc.doUpdate(sql_updatePw, new String[] {
-				 newPw,nmb.toString(),oldPw
+				 MD5.md5(newPw),nmb.toString(),MD5.md5(oldPw)
 		 });
 	}
 

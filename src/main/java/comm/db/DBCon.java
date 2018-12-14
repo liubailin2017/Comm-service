@@ -6,8 +6,8 @@ import util.Cofig;
 
 public class DBCon {
 	private String driver="com.mysql.jdbc.Driver";
-	private String url="jdbc:mysql://www.hqhworld.cn:3306/comm";
-	private String urlPage616321 = "jdbc:mysql://www.hqhworld.cn:3306/page616321";
+	private String url="jdbc:mysql://www.hqhworld.cn:3306/comm?characterEncoding=utf8";
+	private String urlPage616321 = "jdbc:mysql://www.hqhworld.cn:3306/page616321?characterEncoding=utf8";
 	private String user="liubailin";
 	private String password=Cofig.dbPwd;
 	private Connection conn=null;
